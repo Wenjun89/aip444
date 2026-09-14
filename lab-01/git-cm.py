@@ -1,4 +1,3 @@
-# test update
 import os
 import sys
 import datetime
@@ -39,13 +38,14 @@ client = OpenAI(
     api_key=OPENROUTER_API_KEY,
 )
 
+MODEL_NAME = "openrouter/free"
+
 if is_creative:
     system_prompt = (
         "Use Gitmoji and write a commit message using 17th Century Pirate slang. "
         "Output ONLY the commit message with no Markdown and no rationale."
     )
-
-    model_name = "google/gemma-4-31b-it:free" 
+    temperature = 0.9
 else:
     system_prompt = (
         "You are an LLM running in a CLI tool, which writes semantic commit messages for the user. "
@@ -53,20 +53,21 @@ else:
         "standard format (e.g., 'feat: add logging'). Respond in plain text suitable for pasting into "
         "git commit -m '...'; just the plain text commit message with no Markdown, no rationale."
     )
-    model_name = "google/gemma-4-31b-it:free"
+    temperature = 0.1
 
-try:
-    response = client.chat.completions.create(
-        model=model_name,
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": diff}
-        ],
-        temperature=0.9 if is_creative else 0.1
-    )
-    commit_message = response.choices[0].message.content.strip()
-    print("\nGenerated Commit Message:")
-    print(commit_message)
-except Exception as e:
-    print(f"❌ Error communicating with OpenRouter: {e}")
-    sys.exit(1)
+print("\nGenerating Commit Message options...")
+for i in range(1, 3):
+    try:
+        response = client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": diff}
+            ],
+            temperature=temperature
+        )
+        commit_message = response.choices[0].message.content.strip()
+        print(f"\n[Option {i}]:")
+        print(commit_message)
+    except Exception as e:
+        print(f"\n❌ Error on Option {i}: {e}")

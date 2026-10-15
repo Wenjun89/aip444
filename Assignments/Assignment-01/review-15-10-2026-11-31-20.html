@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f4f4f4; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .severity-critical { color: red; }
+        .severity-warn { color: orange; }
+        .severity-info { color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Code Review Report for bad_code.py</h1>
+    <h2>Summary</h2>
+    <p>This report presents the findings from a code review of the file <code>bad_code.py</code>. The review was conducted by multiple reviewers, focusing on security, maintainability, and style issues.</p>
+
+    <h2>Issues Identified</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Line</th>
+                <th>Severity</th>
+                <th>Category</th>
+                <th>Issue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>19</td>
+                <td class="severity-critical">Critical</td>
+                <td>Security</td>
+                <td>An API Key has been hard-coded into the <code>api_key</code> variable. Move the secret to an environment variable or secure vault.</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td class="severity-critical">Critical</td>
+                <td>Maintainability</td>
+                <td>Function <code>calculate_total</code> has a poor variable name <code>x</code>. Rename it to something descriptive like <code>total_sum</code>.</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td class="severity-critical">Critical</td>
+                <td>Maintainability</td>
+                <td>Function <code>calculate_total</code> returns an int but sums floats. Change the return type to <code>float</code>.</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="severity-warn">Warn</td>
+                <td>Maintainability</td>
+                <td>Unused import <code>sys</code> at the top of the file. Remove unused imports to improve code clarity.</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="severity-info">Info</td>
+                <td>Style</td>
+                <td>The module docstring is informative but could be more concise. Consider summarizing the purpose and functionality.</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td class="severity-info">Info</td>
+                <td>Style</td>
+                <td>Consider adding comments to explain the purpose of the <code>main</code> function and its logic.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Recommendations</h2>
+    <ul>
+        <li>Remove the hardcoded API key and use environment variables or a secure vault to manage secrets.</li>
+        <li>Rename the variable <code>x</code> in the <code>calculate_total</code> function to a more descriptive name like <code>total_sum</code>.</li>
+        <li>Change the return type of the <code>calculate_total</code> function to <code>float</code> to prevent data loss.</li>
+        <li>Remove the unused import <code>sys</code> to clean up the code.</li>
+        <li>Revise the module docstring to be more concise and focused on the purpose and functionality.</li>
+        <li>Add comments to the <code>main</code> function to clarify its purpose and logic.</li>
+    </ul>
+</body>
+</html>

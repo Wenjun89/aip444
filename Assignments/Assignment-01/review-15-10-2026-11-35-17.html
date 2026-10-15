@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .critical { color: red; }
+        .warn { color: orange; }
+        .info { color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Code Review Report</h1>
+    <p>This report provides a detailed analysis of the code in <code>Assignments/Assignment-01/bad_code.py</code>. The review focuses on security, maintainability, and style issues identified in the code.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Line</th>
+                <th>Severity</th>
+                <th>Category</th>
+                <th>Issue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>15</td>
+                <td class="critical">Critical</td>
+                <td>Security</td>
+                <td>A hardcoded API key is present in the code. This is a security risk and should be moved to an environment variable or secure vault to prevent exposure.</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td class="critical">Critical</td>
+                <td>Maintainability</td>
+                <td>The function <code>calculate_total</code> is returning a float but is annotated to return an int. This can lead to type mismatch issues. Change the return type to float.</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td class="warn">Warning</td>
+                <td>Maintainability</td>
+                <td>The variable name <code>x</code> is not descriptive. Consider using a more meaningful name like <code>total_sum</code>.</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="warn">Warning</td>
+                <td>Maintainability</td>
+                <td>The import statement for <code>sys</code> is unused and should be removed to clean up the code.</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td class="info">Info</td>
+                <td>Style</td>
+                <td>The function <code>main</code> is doing too much. Consider breaking it down into smaller functions for better readability.</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="info">Info</td>
+                <td>Style</td>
+                <td>The module docstring is informative but could be more concise. Consider summarizing the purpose.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+```
+
+This HTML report synthesizes the findings from both reviewers, highlighting critical security and maintainability issues, as well as providing suggestions for improving code readability and style.

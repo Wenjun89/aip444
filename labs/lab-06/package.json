@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/node-fetch": "^2.6.13",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "node-fetch": "^3.3.2"
+  }
+}

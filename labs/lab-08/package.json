@@ -1,0 +1,25 @@
+{
+  "name": "lab-08",
+  "version": "1.0.0",
+  "description": "A TypeScript CLI tool that captures or takes screenshots of technical errors, optimizes them, analyzes them using a multimodal LLM (via OpenRouter), and searches the web using the Tavily API to fetch current documentation and solutions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tavily/core": "^1.0.0",
+    "dotenv": "^18.0.10",
+    "openai": "^7.55.0",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

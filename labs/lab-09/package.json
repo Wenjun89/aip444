@@ -1,0 +1,26 @@
+{
+  "name": "lab-09",
+  "version": "1.0.0",
+  "description": "Research Source Credibility Analyzer Agent using OpenAI Agents SDK",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@openai/agents": "^0.22.0",
+    "@tavily/core": "^1.1.0",
+    "dotenv": "^18.0.10",
+    "openai": "^7.64.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.10",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
